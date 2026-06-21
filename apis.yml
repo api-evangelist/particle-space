@@ -1,0 +1,146 @@
+aid: particle-space
+url: https://raw.githubusercontent.com/api-evangelist/particle-space/refs/heads/main/apis.yml
+name: Particle Space
+kind: company
+description: Particle Space is proptech infrastructure that exposes real-estate and
+  property data through a REST API, Dashboard, SDKs, and white-labeled UIs. The
+  platform provides real-time access to millions of properties for sale, rent, and
+  off-market - property records, address and property search, valuations, comparables,
+  and listings - using publishable and secret API keys with live and test modes.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Real Estate
+- Property Data
+- PropTech
+- Listings
+- Valuations
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: particle-space:property-records
+  name: Particle Space Property Records API
+  tags:
+  - Property Records
+  - Property Details
+  - Real Estate
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.particlespace.com/docs/intro/
+  baseURL: https://api.particlespace.com
+  properties:
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+  - url: openapi/particle-space-openapi.yml
+    type: OpenAPI
+  - url: collections/particle-space.postman_collection.json
+    type: PostmanCollection
+  - url: collections/particle-space.opencollection.json
+    type: OpenCollection
+  description: Resource-oriented access to property records and detailed attributes
+    for residential properties across the United States. Modeled from Particle
+    Space's documented data-platform product; exact resource paths to be confirmed
+    against the live API reference.
+- aid: particle-space:address-search
+  name: Particle Space Address Search API
+  tags:
+  - Address Search
+  - Autocomplete
+  - Geocoding
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.particlespace.com/docs/intro/
+  baseURL: https://api.particlespace.com
+  properties:
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+  - url: openapi/particle-space-openapi.yml
+    type: OpenAPI
+  - url: collections/particle-space.postman_collection.json
+    type: PostmanCollection
+  - url: collections/particle-space.opencollection.json
+    type: OpenCollection
+  description: Search and look up properties by address or query, resolving an
+    address to a property record for downstream records, valuations, and listings
+    lookups. Modeled from Particle Space's documented data-platform product.
+- aid: particle-space:valuations
+  name: Particle Space Valuations API
+  tags:
+  - AVM
+  - Valuations
+  - Estimates
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.particlespace.com/docs/intro/
+  baseURL: https://api.particlespace.com
+  properties:
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+  - url: openapi/particle-space-openapi.yml
+    type: OpenAPI
+  - url: collections/particle-space.postman_collection.json
+    type: PostmanCollection
+  - url: collections/particle-space.opencollection.json
+    type: OpenCollection
+  description: Automated valuation model (AVM) estimates for property value and
+    rent for a given property or address. Modeled from Particle Space's documented
+    data-platform product; specific estimate fields to be confirmed against the
+    live API reference.
+- aid: particle-space:comps
+  name: Particle Space Comparables API
+  tags:
+  - Comps
+  - Comparables
+  - Market Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.particlespace.com/docs/intro/
+  baseURL: https://api.particlespace.com
+  properties:
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+  - url: openapi/particle-space-openapi.yml
+    type: OpenAPI
+  - url: collections/particle-space.postman_collection.json
+    type: PostmanCollection
+  - url: collections/particle-space.opencollection.json
+    type: OpenCollection
+  description: Comparable properties (comps) for a subject property to support
+    valuation, underwriting, and pricing workflows. Modeled from Particle Space's
+    documented data-platform product.
+- aid: particle-space:listings
+  name: Particle Space Listings API
+  tags:
+  - Listings
+  - For Sale
+  - For Rent
+  - Off-Market
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.particlespace.com/docs/intro/
+  baseURL: https://api.particlespace.com
+  properties:
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+  - url: openapi/particle-space-openapi.yml
+    type: OpenAPI
+  - url: collections/particle-space.postman_collection.json
+    type: PostmanCollection
+  - url: collections/particle-space.opencollection.json
+    type: OpenCollection
+  description: Real-time access to property listings for sale, for rent, and
+    off-market, the core of Particle Space's real-estate data platform. Modeled
+    from Particle Space's documented data-platform product.
+common:
+- type: GitHubOrganization
+  url: https://github.com/particlespace
+- type: LinkedIn
+  url: https://www.linkedin.com/company/particle-space
+- type: Website
+  url: https://particlespace.com/
+- type: Documentation
+  url: https://docs.particlespace.com/
+- type: Plans
+  url: plans/particle-space-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/particle-space-rate-limits.yml
+- type: FinOps
+  url: finops/particle-space-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

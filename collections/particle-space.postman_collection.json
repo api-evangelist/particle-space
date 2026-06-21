@@ -1,0 +1,158 @@
+{
+  "info": {
+    "_postman_id": "b1f4a2c0-7e3d-4c9a-9a21-5d2f8e0a1c44",
+    "name": "Particle Space API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Particle Space proptech property-data API. REST, resource-oriented URLs, JSON responses, API-key auth with live/test mode. Endpoints model the documented data-platform product areas and are unreconciled pending verification against docs.particlespace.com.",
+      "type": "text/plain"
+    }
+  },
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.particlespace.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{secretKey}}"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Property Records",
+      "item": [
+        {
+          "name": "List or query property records.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/properties?address=&limit=",
+              "host": ["{{baseUrl}}"],
+              "path": ["properties"],
+              "query": [
+                { "key": "address", "value": "" },
+                { "key": "limit", "value": "" }
+              ]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        },
+        {
+          "name": "Retrieve a single property record.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/properties/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["properties", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Address Search",
+      "item": [
+        {
+          "name": "Search properties by address or query.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/properties/search?q=",
+              "host": ["{{baseUrl}}"],
+              "path": ["properties", "search"],
+              "query": [{ "key": "q", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Valuations",
+      "item": [
+        {
+          "name": "Get an AVM value and rent estimate for a property.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/valuations?propertyId=&address=",
+              "host": ["{{baseUrl}}"],
+              "path": ["valuations"],
+              "query": [
+                { "key": "propertyId", "value": "" },
+                { "key": "address", "value": "" }
+              ]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comparables",
+      "item": [
+        {
+          "name": "Get comparable properties for a subject property.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/comparables?propertyId=&address=",
+              "host": ["{{baseUrl}}"],
+              "path": ["comparables"],
+              "query": [
+                { "key": "propertyId", "value": "" },
+                { "key": "address", "value": "" }
+              ]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listings",
+      "item": [
+        {
+          "name": "List for-sale, for-rent, and off-market listings.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/listings?status=&address=&limit=",
+              "host": ["{{baseUrl}}"],
+              "path": ["listings"],
+              "query": [
+                { "key": "status", "value": "" },
+                { "key": "address", "value": "" },
+                { "key": "limit", "value": "" }
+              ]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        },
+        {
+          "name": "Retrieve a single listing.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/listings/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["listings", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Particle Space
+providerId: particle-space
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Real Estate
+- Property Data
+- PropTech
+- Listings
+- Valuations
+- Plans
+description: >-
+  Particle Space publishes a tiered pricing model on its pricing page, starting
+  with a free Developer plan that allows integrating and exploring the platform
+  with a limited monthly quota of API requests. Higher paid tiers raise request
+  volumes and unlock additional capabilities. Specific paid-tier names, request
+  limits, and prices are not fully reconciled in this artifact and must be
+  verified on the live pricing page.
+notes: >-
+  Only the free Developer tier was confirmable at authoring time (50 API
+  requests per month). Verify all paid-tier names, quotas, and prices on
+  https://particlespace.com/pricing/ during reconciliation.
+sources:
+- https://particlespace.com/pricing/
+- https://docs.particlespace.com/docs/intro/
+plans:
+- id: particle-space-developer
+  name: Developer
+  type: free
+  description: >-
+    Free plan to integrate and explore Particle Space features with a limited
+    monthly API request quota.
+  entries:
+  - label: API Requests
+    name: api_requests
+    type: limit
+    metric: requests
+    limit: 50
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: Property Records
+  - name: Address Search
+  - name: Valuations
+  - name: Comparables
+  - name: Listings
+- id: particle-space-paid
+  name: Paid Plans
+  type: usage
+  description: >-
+    Paid subscription tiers with higher monthly API request volumes and
+    additional capabilities. Tier names, quotas, and prices to be reconciled
+    against the live pricing page.
+  entries:
+  - label: API Requests
+    name: api_requests_paid
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: see provider pricing page
+    userMultiplied: false
+  elements:
+  - name: Property Records
+  - name: Address Search
+  - name: Valuations
+  - name: Comparables
+  - name: Listings
+- id: particle-space-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Volume commitments, custom data access, white-labeled UIs, and negotiated
+    terms. Contact Particle Space sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: White-Labeled UIs
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

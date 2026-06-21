@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{secretKey}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Property Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or query property records.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties",
+            "params": [
+              { "name": "address", "value": "", "type": "query" },
+              { "name": "limit", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Returns property records matching the supplied filters."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single property record.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "Particle Space identifier for the property." }
+            ]
+          },
+          "docs": "Retrieve a single property record by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Address Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search properties by address or query.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties/search",
+            "params": [
+              { "name": "q", "value": "", "type": "query", "description": "Address or search query." }
+            ]
+          },
+          "docs": "Resolves an address or free-text query to matching properties."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Valuations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an AVM value and rent estimate for a property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/valuations",
+            "params": [
+              { "name": "propertyId", "value": "", "type": "query" },
+              { "name": "address", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Returns automated valuation model (AVM) value and rent estimates."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Comparables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get comparable properties for a subject property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/comparables",
+            "params": [
+              { "name": "propertyId", "value": "", "type": "query" },
+              { "name": "address", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Returns comparable properties (comps) for a subject property."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List for-sale, for-rent, and off-market listings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/listings",
+            "params": [
+              { "name": "status", "value": "", "type": "query", "description": "for_sale | for_rent | off_market" },
+              { "name": "address", "value": "", "type": "query" },
+              { "name": "limit", "value": "", "type": "query" }
+            ]
+          },
+          "docs": "Returns property listings for sale, for rent, and off-market."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single listing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/listings/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "Listing identifier." }
+            ]
+          },
+          "docs": "Retrieve a single listing by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

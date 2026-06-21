@@ -1,0 +1,81 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Particle Space
+providerId: particle-space
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Real Estate
+- Property Data
+- PropTech
+- Listings
+- Valuations
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Particle Space spend. Particle Space bills on a tiered
+  subscription model metered by API requests, with a free Developer tier and
+  paid tiers that raise monthly request volumes. Exact paid-tier prices and
+  quotas are not reconciled here and should be verified on the pricing page.
+notes: >-
+  Tier prices and request quotas are subject to change; verify against
+  https://particlespace.com/pricing/ during reconciliation.
+sources:
+- https://particlespace.com/pricing/
+- https://docs.particlespace.com/docs/intro/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Particle Space
+serviceCategory: Real Estate and Property Data
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Particle Space
+  ServiceCategory: Real Estate and Property Data
+  ProviderName: Particle Space
+  PublisherName: Particle Space
+  InvoiceIssuerName: Particle Space
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription
+meters:
+- name: api_requests
+  description: API requests made against the Particle Space platform, metered per plan per month.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - api
+  - mode
+- name: subscription_fee
+  description: Recurring monthly subscription fee for the selected plan tier.
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track monthly API request consumption per key and mode (live vs. test) against the plan quota.
+- name: Allocation
+  description: Tag publishable/secret keys per product or team and map usage to internal cost centers.
+- name: Optimization
+  description: Use test mode for development to avoid consuming live quota; cache stable property records and valuations to reduce repeat calls; right-size the plan tier to monthly volume.
+- name: Accountability
+  description: Assign owners per integration; review request burn monthly against the plan quota and budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

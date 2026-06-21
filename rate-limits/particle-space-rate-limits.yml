@@ -1,0 +1,53 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Particle Space
+providerId: particle-space
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Real Estate
+- Property Data
+- PropTech
+- Listings
+- Valuations
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Particle Space meters usage by API requests, with the free Developer plan
+  capped at a fixed monthly request quota and paid plans raising that quota.
+  Per-second or per-minute throttling values and the exact 429 throttling
+  behavior are not documented in the sources reviewed and are not reconciled in
+  this artifact.
+notes: >-
+  Confirm any per-second/per-minute throttling limits, monthly request quotas
+  per tier, and the throttling response code in the live API reference and
+  pricing page during reconciliation.
+sources:
+- https://particlespace.com/pricing/
+- https://docs.particlespace.com/docs/intro/
+responseCodes:
+  throttled: see provider documentation
+limits:
+- name: Monthly API Requests
+  scope: account
+  metric: requests
+  limit: see provider pricing page
+  notes: >-
+    Monthly request quota per plan; the free Developer plan allows 50 requests
+    per month. Paid-tier quotas to be reconciled.
+- name: Request Rate
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-second / per-minute throttling not documented in reviewed sources.
+policies:
+- name: Tiered Quotas
+  description: Monthly request allowances increase from the free Developer plan through paid and enterprise tiers.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

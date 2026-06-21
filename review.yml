@@ -1,0 +1,76 @@
+aid: particle-space
+name: Particle Space
+review:
+  question: Is "Particle Space" the same company as "Particle" (the IoT platform), and does it operate a real, documented property-data REST API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  disambiguation: true
+findings:
+  summary: |
+    Particle Space (particlespace.com) is a proptech infrastructure company that
+    provides real-estate and property data via a REST API, Dashboard, SDKs, and
+    white-labeled UIs. It offers real-time access to millions of properties for
+    sale, rent, and off-market - property records, address/property search,
+    valuations (AVM), comparables, and listings. It is a DISTINCT company from:
+      - Particle / particle.io - the IoT device cloud platform (Cloud API for
+        connected devices); unrelated to real estate.
+      - mParticle (docs.mparticle.com) - a customer data platform; unrelated.
+      - particle.pro / "Particle Data Platform" - unrelated.
+    This catalog covers Particle Space (real estate / property data) only.
+    The Particle Space API is documented as REST with resource-oriented URLs,
+    form-encoded request bodies, JSON responses, and standard HTTP verbs and
+    codes. Authentication uses API keys; the key (publishable PS_PUBLISH_KEY and
+    secret PS_SECRET_KEY) determines live vs. test mode - a Stripe-style key
+    model.
+  identityConfirmed:
+    company: Particle Space
+    website: https://particlespace.com/
+    docs: https://docs.particlespace.com/docs/intro/
+    github: https://github.com/particlespace
+    linkedin: https://www.linkedin.com/company/particle-space
+    category: Real Estate / Property Data (PropTech)
+  notDoneNote: |
+    The Particle Space developer docs (docs.particlespace.com) render
+    client-side (Docusaurus) and direct host fetches were not resolvable from
+    the authoring environment, so the exact API base host, request paths, query
+    parameters, and response schemas could NOT be byte-confirmed. The OpenAPI in
+    this repo models the documented data-platform product areas (property
+    records, address search, valuations, comparables, listings) with secret-key
+    bearer auth and an api.particlespace.com server, all explicitly marked as
+    unreconciled. Plans, rate-limits, and finops are reconciled: false. These
+    must be verified against the live API reference before being treated as
+    authoritative.
+  productAreasConfirmed:
+    - Property records / property details
+    - Address and property search
+    - Valuations (AVM) - value and rent estimates
+    - Comparables (comps)
+    - Listings (for sale, for rent, off-market)
+  authConfirmed:
+    model: API key (publishable + secret), live/test mode determined by key
+    envVars:
+      - PS_PUBLISH_KEY
+      - PS_SECRET_KEY
+sources:
+  - url: https://particlespace.com/
+    type: Website
+    note: Proptech infrastructure; real-time access to millions of properties for sale, rent, and off-market.
+  - url: https://particlespace.com/data-platform/
+    type: Documentation
+    note: Property-data platform product page.
+  - url: https://docs.particlespace.com/docs/intro/
+    type: Documentation
+    note: REST API intro; form-encoded requests, JSON responses, API-key auth, live/test mode.
+  - url: https://particlespace.com/pricing/
+    type: Plans
+    note: Tiered pricing; free Developer plan with 50 API requests/month.
+  - url: https://github.com/particlespace
+    type: GitHubOrganization
+    note: Two ReactJS/TypeScript starter templates; .env uses PS_PUBLISH_KEY and PS_SECRET_KEY. No SDK or OpenAPI repo.
+  - url: https://www.linkedin.com/company/particle-space
+    type: LinkedIn
+    note: Company profile.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
