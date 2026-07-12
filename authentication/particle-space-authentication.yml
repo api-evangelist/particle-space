@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/particle-space-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: SecretKeyAuth
+  type: http
+  scheme: bearer
+  description: Authenticate with a Particle Space secret API key (PS_SECRET_KEY) as a bearer
+    token. The key determines live versus test mode. Confirm the exact authentication scheme
+    and header in the live API reference.
+  sources:
+  - openapi/particle-space-openapi.yml
