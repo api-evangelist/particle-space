@@ -127,6 +127,8 @@ apis:
     off-market, the core of Particle Space's real-estate data platform. Modeled
     from Particle Space's documented data-platform product.
 common:
+- type: AgenticAccess
+  url: agentic-access/particle-space-agentic-access.yml
 - type: Authentication
   url: authentication/particle-space-authentication.yml
 - type: GitHubOrganization
