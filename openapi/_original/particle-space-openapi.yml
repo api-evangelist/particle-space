@@ -1,0 +1,359 @@
+openapi: 3.0.1
+info:
+  title: Particle Space API
+  description: >-
+    Particle Space is proptech infrastructure for real-estate and property data.
+    The API is organized around REST, has resource-oriented URLs, accepts
+    form-encoded request bodies, returns JSON-encoded responses, and uses
+    standard HTTP response codes, authentication, and verbs. Requests are
+    authenticated with an API key; the key determines whether the request runs
+    in live mode or test mode.
+
+    This specification models the documented Particle Space data-platform product
+    areas - property records, address/property search, valuations (AVM),
+    comparables, and listings (for sale, rent, and off-market). The exact
+    request paths, query parameters, and response schemas should be reconciled
+    against the live API reference at https://docs.particlespace.com/docs/intro/.
+    Resource paths and field names below are illustrative of the documented
+    product areas and are marked unreconciled until verified.
+  termsOfService: https://particlespace.com/
+  contact:
+    name: Particle Space
+    url: https://docs.particlespace.com/docs/intro/
+  version: '1.0'
+servers:
+  - url: https://api.particlespace.com
+    description: >-
+      Conventional API host for Particle Space. Confirm the exact base URL in
+      the live API reference before use.
+security:
+  - SecretKeyAuth: []
+tags:
+  - name: Property Records
+    description: Property records and detailed attributes.
+  - name: Address Search
+    description: Address and property search / lookup.
+  - name: Valuations
+    description: Automated valuation model (AVM) value and rent estimates.
+  - name: Comparables
+    description: Comparable properties for a subject property.
+  - name: Listings
+    description: For-sale, for-rent, and off-market property listings.
+paths:
+  /properties:
+    get:
+      operationId: listProperties
+      tags:
+        - Property Records
+      summary: List or query property records.
+      description: >-
+        Returns property records matching the supplied filters. Modeled from the
+        documented property-data product; confirm parameters in the live API
+        reference.
+      parameters:
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Full or partial address to match property records.
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Maximum number of records to return.
+      responses:
+        '200':
+          description: A list of property records.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Property'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /properties/{id}:
+    get:
+      operationId: getProperty
+      tags:
+        - Property Records
+      summary: Retrieve a single property record.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Particle Space identifier for the property.
+      responses:
+        '200':
+          description: A property record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Property not found.
+  /properties/search:
+    get:
+      operationId: searchProperties
+      tags:
+        - Address Search
+      summary: Search properties by address or query.
+      description: >-
+        Resolves an address or free-text query to matching properties for
+        downstream records, valuation, comparables, and listings lookups.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Address or search query.
+      responses:
+        '200':
+          description: Matching properties.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Property'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /valuations:
+    get:
+      operationId: getValuation
+      tags:
+        - Valuations
+      summary: Get an AVM value and rent estimate for a property.
+      description: >-
+        Returns automated valuation model (AVM) estimates for a property
+        identified by id or address. Confirm estimate fields in the live API
+        reference.
+      parameters:
+        - name: propertyId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Particle Space property identifier.
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Address to value when no property identifier is supplied.
+      responses:
+        '200':
+          description: A valuation estimate.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Valuation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /comparables:
+    get:
+      operationId: getComparables
+      tags:
+        - Comparables
+      summary: Get comparable properties for a subject property.
+      parameters:
+        - name: propertyId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Subject property identifier.
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Subject property address when no identifier is supplied.
+      responses:
+        '200':
+          description: A list of comparable properties.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Property'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /listings:
+    get:
+      operationId: listListings
+      tags:
+        - Listings
+      summary: List for-sale, for-rent, and off-market listings.
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - for_sale
+              - for_rent
+              - off_market
+          description: Listing status filter.
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Address or area to match listings.
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Maximum number of listings to return.
+      responses:
+        '200':
+          description: A list of listings.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Listing'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /listings/{id}:
+    get:
+      operationId: getListing
+      tags:
+        - Listings
+      summary: Retrieve a single listing.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Listing identifier.
+      responses:
+        '200':
+          description: A listing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Listing'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Listing not found.
+components:
+  securitySchemes:
+    SecretKeyAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Authenticate with a Particle Space secret API key (PS_SECRET_KEY) as a
+        bearer token. The key determines live versus test mode. Confirm the
+        exact authentication scheme and header in the live API reference.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Property:
+      type: object
+      description: A property record. Field set to be reconciled against the live API reference.
+      properties:
+        id:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        propertyType:
+          type: string
+        bedrooms:
+          type: number
+        bathrooms:
+          type: number
+        squareFootage:
+          type: number
+        yearBuilt:
+          type: integer
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+    Valuation:
+      type: object
+      description: AVM value and rent estimate for a property.
+      properties:
+        propertyId:
+          type: string
+        valueEstimate:
+          type: number
+        valueRangeLow:
+          type: number
+        valueRangeHigh:
+          type: number
+        rentEstimate:
+          type: number
+        currency:
+          type: string
+    Listing:
+      type: object
+      description: A for-sale, for-rent, or off-market listing.
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+            - for_sale
+            - for_rent
+            - off_market
+        price:
+          type: number
+        address:
+          $ref: '#/components/schemas/Address'
+        property:
+          $ref: '#/components/schemas/Property'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+            message:
+              type: string

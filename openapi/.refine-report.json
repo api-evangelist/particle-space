@@ -1,0 +1,22 @@
+{
+  "provider": "particle-space",
+  "sources": [
+    "particle-space-address-search-api-openapi.yml",
+    "particle-space-comparables-api-openapi.yml",
+    "particle-space-listings-api-openapi.yml",
+    "particle-space-property-records-api-openapi.yml",
+    "particle-space-valuations-api-openapi.yml"
+  ],
+  "outputs": [
+    "particle-space-address-search-api-openapi.yml",
+    "particle-space-comparables-api-openapi.yml",
+    "particle-space-listings-api-openapi.yml",
+    "particle-space-property-records-api-openapi.yml",
+    "particle-space-valuations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
