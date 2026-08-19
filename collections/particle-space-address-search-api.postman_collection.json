@@ -1,0 +1,182 @@
+{
+  "item": [
+    {
+      "id": "249bdead-0d1f-4361-87c1-8ea4b3c39b78",
+      "name": "Address Search",
+      "description": {
+        "content": "Address and property search / lookup.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3078936-2ea0-4bc2-8915-011e6725b758",
+          "name": "Search properties by address or query.",
+          "request": {
+            "name": "Search properties by address or query.",
+            "description": {
+              "content": "Resolves an address or free-text query to matching properties for downstream records, valuation, comparables, and listings lookups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "properties",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Address or search query."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ea9a5f3-bacd-422c-ad4a-c221323f3c43",
+              "name": "Matching properties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "properties",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"latitude\": 232.0538381675119,\n        \"longitude\": 1175.3306534514963\n      },\n      \"propertyType\": \"string\",\n      \"bedrooms\": 3737.53362815341,\n      \"bathrooms\": 9896.177679313529,\n      \"squareFootage\": 8685.24473083867,\n      \"yearBuilt\": 1907\n    },\n    {\n      \"id\": \"string\",\n      \"address\": {\n        \"line1\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"latitude\": 362.1107083281483,\n        \"longitude\": 6154.627342547977\n      },\n      \"propertyType\": \"string\",\n      \"bedrooms\": 5117.943881699194,\n      \"bathrooms\": 3791.420957594189,\n      \"squareFootage\": 8552.443286099871,\n      \"yearBuilt\": 8205\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5093111-8c8e-423a-8c97-0ae5cf46d70c",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "properties",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"type\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.particlespace.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97350c55-581c-41ce-87a3-6ca8dd4f9370",
+    "name": "Particle Space Address Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Particle Space is proptech infrastructure for real-estate and property data. The API is organized around REST, has resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. Requests are authenticated with an API key; the key determines whether the request runs in live mode or test mode.\nThis specification models the documented Particle Space data-platform product areas - property records, address/property search, valuations (AVM), comparables, and listings (for sale, rent, and off-market). The exact request paths, query parameters, and response schemas should be reconciled against the live API reference at https://docs.particlespace.com/docs/intro/. Resource paths and field names below are illustrative of the documented product areas and are marked unreconciled until verified.\n\nContact Support:\n Name: Particle Space",
+      "type": "text/plain"
+    }
+  }
+}

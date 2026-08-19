@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space Address Search Property Records API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Property Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or query property records.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Full or partial address to match property records."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              }
+            ]
+          },
+          "docs": "Returns property records matching the supplied filters. Modeled from the documented property-data product; confirm parameters in the live API reference."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single property record.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Particle Space identifier for the property."
+              }
+            ]
+          },
+          "docs": "Retrieve a single property record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

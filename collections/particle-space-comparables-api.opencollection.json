@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space Address Search Comparables API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comparables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get comparable properties for a subject property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/comparables",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Subject property identifier."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Subject property address when no identifier is supplied."
+              }
+            ]
+          },
+          "docs": "Get comparable properties for a subject property."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

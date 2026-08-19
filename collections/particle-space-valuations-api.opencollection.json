@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space Address Search Valuations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Valuations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an AVM value and rent estimate for a property.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/valuations",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Particle Space property identifier."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address to value when no property identifier is supplied."
+              }
+            ]
+          },
+          "docs": "Returns automated valuation model (AVM) estimates for a property identified by id or address. Confirm estimate fields in the live API reference."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

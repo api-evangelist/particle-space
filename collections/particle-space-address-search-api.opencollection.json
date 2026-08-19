@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space Address Search API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Address Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search properties by address or query.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/properties/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Address or search query."
+              }
+            ]
+          },
+          "docs": "Resolves an address or free-text query to matching properties for downstream records, valuation, comparables, and listings lookups."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

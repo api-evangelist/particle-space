@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Particle Space Address Search Listings API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List for-sale, for-rent, and off-market listings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/listings",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Listing status filter."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address or area to match listings."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of listings to return."
+              }
+            ]
+          },
+          "docs": "List for-sale, for-rent, and off-market listings."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single listing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.particlespace.com/listings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Listing identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve a single listing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
