@@ -22,6 +22,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/particle-space.png
 tags:
+- Real-Estate
+- Property Data
+- PropTech
+- Listings
+- Valuations
+tags_raw:
 - Real Estate
 - Property Data
 - PropTech
