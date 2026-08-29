@@ -7,6 +7,18 @@ description: Particle Space is proptech infrastructure that exposes real-estate 
   platform provides real-time access to millions of properties for sale, rent, and
   off-market - property records, address and property search, valuations, comparables,
   and listings - using publishable and secret API keys with live and test modes.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
