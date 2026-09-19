@@ -38,7 +38,7 @@ tags:
 - Property Data
 - PropTech
 - Listings
-- Valuations
+- Valuation
 tags_raw:
 - Real Estate
 - Property Data
@@ -119,6 +119,8 @@ apis:
   humanURL: https://docs.particlespace.com/docs/intro/
   baseURL: https://api.particlespace.com
   tags:
+  - Valuation
+  tags_raw:
   - Valuations
   properties:
   - type: OpenAPI
