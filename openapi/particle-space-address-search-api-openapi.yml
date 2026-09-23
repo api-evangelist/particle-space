@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Particle Space Address Search API
-  description: 'Particle Space is proptech infrastructure for real-estate and property data. The API is organized around REST, has resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. Requests are authenticated with an API key; the key determines whether the request runs in live mode or test mode.
-
-    This specification models the documented Particle Space data-platform product areas - property records, address/property search, valuations (AVM), comparables, and listings (for sale, rent, and off-market). The exact request paths, query parameters, and response schemas should be reconciled against the live API reference at https://docs.particlespace.com/docs/intro/. Resource paths and field names below are illustrative of the documented product areas and are marked unreconciled until verified.'
+  description: Particle Space is proptech infrastructure for real-estate and property data.
   termsOfService: https://particlespace.com/
   contact:
     name: Particle Space
@@ -23,7 +21,7 @@ paths:
       operationId: searchProperties
       tags:
       - Address Search
-      summary: Search properties by address or query.
+      summary: Search properties by address or query
       description: Resolves an address or free-text query to matching properties for downstream records, valuation, comparables, and listings lookups.
       parameters:
       - name: q
@@ -48,24 +46,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Property:
-      type: object
-      description: A property record. Field set to be reconciled against the live API reference.
-      properties:
-        id:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
-        propertyType:
-          type: string
-        bedrooms:
-          type: number
-        bathrooms:
-          type: number
-        squareFootage:
-          type: number
-        yearBuilt:
-          type: integer
     Address:
       type: object
       properties:
@@ -91,6 +71,24 @@ components:
               type: string
             message:
               type: string
+    Property:
+      type: object
+      description: A property record. Field set to be reconciled against the live API reference.
+      properties:
+        id:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        propertyType:
+          type: string
+        bedrooms:
+          type: number
+        bathrooms:
+          type: number
+        squareFootage:
+          type: number
+        yearBuilt:
+          type: integer
   responses:
     Unauthorized:
       description: Missing or invalid API key.
