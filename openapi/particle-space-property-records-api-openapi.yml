@@ -76,6 +76,24 @@ paths:
           description: Property not found.
 components:
   schemas:
+    Property:
+      type: object
+      description: A property record. Field set to be reconciled against the live API reference.
+      properties:
+        id:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        propertyType:
+          type: string
+        bedrooms:
+          type: number
+        bathrooms:
+          type: number
+        squareFootage:
+          type: number
+        yearBuilt:
+          type: integer
     Address:
       type: object
       properties:
@@ -101,24 +119,6 @@ components:
               type: string
             message:
               type: string
-    Property:
-      type: object
-      description: A property record. Field set to be reconciled against the live API reference.
-      properties:
-        id:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
-        propertyType:
-          type: string
-        bedrooms:
-          type: number
-        bathrooms:
-          type: number
-        squareFootage:
-          type: number
-        yearBuilt:
-          type: integer
   responses:
     Unauthorized:
       description: Missing or invalid API key.

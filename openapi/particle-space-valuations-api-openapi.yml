@@ -47,16 +47,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            type:
-              type: string
-            message:
-              type: string
     Valuation:
       type: object
       description: AVM value and rent estimate for a property.
@@ -73,6 +63,16 @@ components:
           type: number
         currency:
           type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+            message:
+              type: string
   responses:
     Unauthorized:
       description: Missing or invalid API key.
