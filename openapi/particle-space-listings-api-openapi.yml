@@ -84,14 +84,17 @@ paths:
         '404':
           description: Listing not found.
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+            message:
+              type: string
     Listing:
       type: object
       description: A for-sale, for-rent, or off-market listing.
@@ -110,6 +113,21 @@ components:
           $ref: '#/components/schemas/Address'
         property:
           $ref: '#/components/schemas/Property'
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
     Property:
       type: object
       description: A property record. Field set to be reconciled against the live API reference.
@@ -128,31 +146,13 @@ components:
           type: number
         yearBuilt:
           type: integer
-    Address:
-      type: object
-      properties:
-        line1:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: number
-        longitude:
-          type: number
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            type:
-              type: string
-            message:
-              type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     SecretKeyAuth:
       type: http
