@@ -1,4 +1,4 @@
-# Particle Space (particle-space)
+# Particle Space
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,122 @@
 
 Particle Space is proptech infrastructure that exposes real-estate and property data through a REST API, Dashboard, SDKs, and white-labeled UIs. The platform provides real-time access to millions of properties for sale, rent, and off-market - property records, address and property search, valuations, comparables, and listings - using publishable and secret API keys with live and test modes.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/particle-space/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/particle-space/refs/heads/main/apis.yml)
+**Areas:** Real Estate · Property Data · PropTech · Listings · Valuation
 
-> Note: Particle Space (real estate / property data) is a distinct company from Particle / particle.io (the IoT device cloud) and from mParticle (a customer data platform). This catalog covers Particle Space only. The OpenAPI and the plans, rate-limits, and finops artifacts model Particle Space's documented product areas and are marked unreconciled pending verification against the live API reference at docs.particlespace.com.
+## Particle Space on APIs.io
 
-## Tags
+Everything profiled for Particle Space is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/particle-space/](https://apis.io/providers/particle-space/)** — or go straight to one of the APIs or properties below.
 
-- Real Estate
-- Property Data
-- PropTech
-- Listings
-- Valuations
+### APIs (5)
 
-## Timestamps
+- [Particle Space Address Search API](https://apis.io/apis/particle-space/particle-space-address-search-api/) — Address and property search / lookup.
+- [Particle Space Comparables API](https://apis.io/apis/particle-space/particle-space-comparables-api/) — Comparable properties for a subject property.
+- [Particle Space Listings API](https://apis.io/apis/particle-space/particle-space-listings-api/) — For-sale, for-rent, and off-market property listings.
+- [Particle Space Property Records API](https://apis.io/apis/particle-space/particle-space-property-records-api/) — Property records and detailed attributes.
+- [Particle Space Valuations API](https://apis.io/apis/particle-space/particle-space-valuations-api/) — Automated valuation model (AVM) value and rent estimates.
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Particle Space Property Records API
+#### Agentic access (1)
 
-Resource-oriented access to property records and detailed attributes for residential properties across the United States. Modeled from Particle Space's documented data-platform product; exact resource paths to be confirmed against the live API reference.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://docs.particlespace.com/docs/intro/](https://docs.particlespace.com/docs/intro/)
-- **Base URL:** `https://api.particlespace.com`
+- [Particle Space Agentic Access](https://apis.io/agentic-access/particle-space/particle-space-agentic-access/)
 
-#### Tags
+#### Collections (6)
 
-- Property Records
-- Property Details
-- Real Estate
+Postman and Open Collection request collections.
 
-#### Properties
+- [Particle Space API](https://apis.io/collections/particle-space/open-particle-space/)
+- [Particle Space Address Search API](https://apis.io/collections/particle-space/open-particle-space-address-search-api/)
+- [Particle Space Address Search Comparables API](https://apis.io/collections/particle-space/open-particle-space-comparables-api/)
+- [Particle Space Address Search Listings API](https://apis.io/collections/particle-space/open-particle-space-listings-api/)
+- [Particle Space Address Search Property Records API](https://apis.io/collections/particle-space/open-particle-space-property-records-api/)
+- [Particle Space Address Search Valuations API](https://apis.io/collections/particle-space/open-particle-space-valuations-api/)
 
-- [Documentation](https://docs.particlespace.com/docs/intro/)
-- [OpenAPI](openapi/particle-space-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/particle-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/particle-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (1)
 
-### Particle Space Address Search API
+Authentication, trust centre, and vulnerability disclosure.
 
-Search and look up properties by address or query, resolving an address to a property record for downstream records, valuations, and listings lookups. Modeled from Particle Space's documented data-platform product.
+- [Particle Space Authentication](https://apis.io/security/particle-space/particle-space-authentication/)
 
-- **Human URL:** [https://docs.particlespace.com/docs/intro/](https://docs.particlespace.com/docs/intro/)
-- **Base URL:** `https://api.particlespace.com`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Address Search
-- Autocomplete
-- Geocoding
+- [Particle Space Plans Pricing](https://apis.io/plans/particle-space/particle-space-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://docs.particlespace.com/docs/intro/)
-- [OpenAPI](openapi/particle-space-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/particle-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/particle-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### Particle Space Valuations API
+- [Particle Space Rate Limits](https://apis.io/rate-limits/particle-space/particle-space-rate-limits/)
 
-Automated valuation model (AVM) estimates for property value and rent for a given property or address. Modeled from Particle Space's documented data-platform product; specific estimate fields to be confirmed against the live API reference.
+#### FinOps (1)
 
-- **Human URL:** [https://docs.particlespace.com/docs/intro/](https://docs.particlespace.com/docs/intro/)
-- **Base URL:** `https://api.particlespace.com`
+What the API costs to run, by operation.
 
-#### Tags
+- [Particle Space Finops](https://apis.io/finops/particle-space/particle-space-finops/)
 
-- AVM
-- Valuations
-- Estimates
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://docs.particlespace.com/docs/intro/)
-- [OpenAPI](openapi/particle-space-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/particle-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/particle-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Particle Space Comparables API
-
-Comparable properties (comps) for a subject property to support valuation, underwriting, and pricing workflows. Modeled from Particle Space's documented data-platform product.
-
-- **Human URL:** [https://docs.particlespace.com/docs/intro/](https://docs.particlespace.com/docs/intro/)
-- **Base URL:** `https://api.particlespace.com`
-
-#### Tags
-
-- Comps
-- Comparables
-- Market Data
-
-#### Properties
-
-- [Documentation](https://docs.particlespace.com/docs/intro/)
-- [OpenAPI](openapi/particle-space-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/particle-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/particle-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Particle Space Listings API
-
-Real-time access to property listings for sale, for rent, and off-market, the core of Particle Space's real-estate data platform. Modeled from Particle Space's documented data-platform product.
-
-- **Human URL:** [https://docs.particlespace.com/docs/intro/](https://docs.particlespace.com/docs/intro/)
-- **Base URL:** `https://api.particlespace.com`
-
-#### Tags
-
-- Listings
-- For Sale
-- For Rent
-- Off-Market
-
-#### Properties
-
-- [Documentation](https://docs.particlespace.com/docs/intro/)
-- [OpenAPI](openapi/particle-space-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/particle-space.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/particle-space.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/particlespace)
-- [LinkedIn](https://www.linkedin.com/company/particle-space)
 - [Website](https://particlespace.com/)
 - [Documentation](https://docs.particlespace.com/)
-- [Plans](plans/particle-space-plans-pricing.yml)
-- [Rate Limits](rate-limits/particle-space-rate-limits.yml)
-- [Fin Ops](finops/particle-space-finops.yml)
+- [GitHub](https://github.com/particlespace)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 36.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 17.9 |
+| Access clarity | 7.9 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/particle-space/](https://apis.io/providers/particle-space/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Particle Space: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/particle-space/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
